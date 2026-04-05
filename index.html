@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,17 +17,90 @@
             padding: 80px 20px;
             background: #111;
             color: white;
+            position: relative;
+        }
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: transparent;
+            color: white;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .language-toggle:hover {
+            background: rgba(255, 255, 255, 0.12);
         }
         header h1 {
             font-size: 48px;
-            margin-bottom: 20px;
+            margin: 0 0 20px;
+        }
+        .hero-layout {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .hero-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .hero-logo img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+        }
+        .hero-copy {
+            max-width: 640px;
+            text-align: left;
         }
         header p {
             font-size: 20px;
             opacity: 0.8;
+            margin: 0;
         }
         section {
             padding: 60px 20px;
+        }
+        .founders {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .founder-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+        .founder-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 20px;
+            width: 280px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .founder-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 20px;
+            background: #e9ecef;
+        }
+        .founder-card h3 {
+            margin: 0 0 10px;
+            font-size: 22px;
+        }
+        .founder-card p {
+            margin: 0;
+            line-height: 1.6;
         }
         .btn {
             display: inline-block;
@@ -37,6 +110,16 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
+        }
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .hero-actions .btn {
+            margin-top: 0;
         }
         footer {
             padding: 30px;
@@ -49,35 +132,116 @@
 <body>
 
 <header>
-    <h1>株式会社組間合</h1>
-    <p>Connecting Japan and the United States</p>
-    <a href="#contact" class="btn">Contact Us</a>
+    <button id="language-toggle" class="language-toggle" type="button">JP</button>
+    <div class="hero-layout">
+        <div class="hero-top">
+            <div class="hero-logo">
+                <img src="images/logo resized.png" alt="KumiMaAi logo">
+            </div>
+            <div class="hero-copy">
+                <h1>株式会社組間合</h1>
+                <p data-i18n="tagline" data-en="Connecting the product spaces" data-ja="商品の空間を組み合わせ">Connecting product spaces</p>
+            </div>
+        </div>
+        <div class="hero-actions">
+            <a href="#about" class="btn" data-i18n="navAbout" data-en="About Us" data-ja="会社概要">About Us</a>
+            <a href="#services" class="btn" data-i18n="navServices" data-en="Our Services" data-ja="事業内容">Our Services</a>
+            <a href="#founders" class="btn" data-i18n="navFounders" data-en="Founders" data-ja="創業情報">Founders</a>
+            <a href="#contact" class="btn" data-i18n="navContact" data-en="Contact Us" data-ja="お問い合わせ">Contact Us</a>
+        </div>
+    </div>
 </header>
 
-<section>
-    <h2>About Us</h2>
-    <p>
-        We are a cross-border company focused on trade between China, Japan, and the United States.
-        Our mission is to deliver high-quality products globally.
+<section id="about">
+    <h2 data-i18n="aboutTitle" data-en="About Us" data-ja="会社概要">About Us</h2>
+    <p data-i18n="aboutBody1" data-en="We aim to streamline the international flow of goods with new added value.
+                                    <br><br>We focus on the market gaps in product value among various nations.
+                                    <br><br>We resolve to launch a cross-border e-commerce enterprise." 
+                            data-ja="私たちは、新たな付加価値を創出し、国際的なモノの流れを円滑化することを目指しています。
+                                    <br><br>私たちは、各国間における製品価値のギャップに焦点を当てています。
+                                    <br><br>そして、越境EC事業を立ち上げる決意を固めています。">
+        Drawing upon my experiences living and studying in China, Japan, and the United States, I focused my attention on the differences in market needs and the gaps in product value among these three nations.
     </p>
 </section>
 
-<section>
-    <h2>Our Services</h2>
-    <p>
+<section id="services">
+    <h2 data-i18n="servicesTitle" data-en="Our Services" data-ja="事業内容">Our Services</h2>
+    <p data-i18n="servicesBody" data-en="The initiative centers on two cross-border e-commerce sales channels:
+                                    <br><br>① Online sales of Chinese products targeting the Japanese market
+                                    <br><br>② Online sales of Japanese products targeting the U.S. market"
+                            data-ja="本取り組みは、以下の2つの越境EC販売チャネルを中核としています。
+                                    <br><br>① 日本市場を対象とした中国製品のオンライン販売
+                                    <br><br>② 米国市場を対象とした日本製品のオンライン販売">
         Product sourcing, international trade, brand distribution,
         and global logistics solutions.
     </p>
 </section>
 
+<section id="founders" class="founders">
+    <h2 data-i18n="foundersTitle" data-en="Meet Our Founders" data-ja="創業情報">Meet Our Founders</h2>
+    <div class="founder-grid">
+        <div class="founder-card">
+            <img src="images/Yilong Chen.png" alt="Founder portrait placeholder">
+            <h3 data-i18n="founder1Name" data-en="Chen, Yilong" data-ja="陳 義龍">Chen Yilong</h3>
+            <p data-i18n="founder1Bio" data-en="Graduated from Georgia Institute of Technology, USA. Leads company strategy and cross-border partnerships, helping connect opportunities across Asia and the United States." data-ja="米国ジョージア工科大学を卒業。企業の戦略策定および国境を越えたパートナーシップを主導し、アジアと米国の間に広がる機会の橋渡しを行っている。">
+                Graduated from Georgia Institute of Technology, USA. Leads company strategy and cross-border partnerships, helping connect
+                opportunities across Asia and the United States.
+            </p>
+        </div>
+        <div class="founder-card">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23dee2e6'/><circle cx='100' cy='78' r='38' fill='%23adb5bd'/><path d='M45 170c10-29 34-45 55-45s45 16 55 45' fill='%23adb5bd'/></svg>" alt="Founder portrait placeholder">
+            <h3 data-i18n="founder2Name" data-en="Bao, Jiatao" data-ja="包 嘉涛">Bao Jiatao</h3>
+            <p data-i18n="founder2Bio" data-en="Graduated from Hong Kong University, Hong Kong. Oversees sourcing and operations, ensuring efficient logistics and reliable product delivery for international clients." data-ja="香港大学を卒業。ソーシングおよびオペレーションを統括し、国際的なクライアントに対し、効率的な物流と確実な製品配送を実現しています。">
+                Graduated from Hong Kong University, Hong Kong. Oversees sourcing and operations, ensuring efficient logistics and
+                reliable product delivery for international clients.
+            </p>
+        </div>
+        <div class="founder-card">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23dee2e6'/><circle cx='100' cy='78' r='38' fill='%23adb5bd'/><path d='M45 170c10-29 34-45 55-45s45 16 55 45' fill='%23adb5bd'/></svg>" alt="Founder portrait placeholder">
+            <h3 data-i18n="founder3Name" data-en="Huang, Xiaozhu" data-ja="黄 小祝">Huang Xiaozhu</h3>
+            <p data-i18n="founder3Bio" data-en="Graduated from Delft University of Technology, Netherlands. Focuses on brand development and market expansion, building strong relationships with customers and distribution partners." data-ja="オランダのデルフト工科大学を卒業。ブランド開発および市場拡大に注力し、顧客や流通パートナーとの強固な関係構築に取り組んでいる。">
+                Graduated from Delft University of Technology, Netherlands. Focuses on brand development and market expansion, building strong
+                relationships with customers and distribution partners.
+            </p>
+        </div>
+    </div>
+</section>
+
 <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: kumimaai@gmail.com</p>
+    <h2 data-i18n="contactTitle" data-en="Contact" data-ja="お問い合わせ">Contact</h2>
+    <p data-i18n="contactEmail" data-en="Address<br><br>〒150-0044, MIEUX Shibuya Bldg., 8th Floor<br>5-3 Maruyama-cho, Shibuya-ku, Tokyo
+                                        <br><br>Email<br><br>kumimaai@gmail.com" 
+                                data-ja="本社<br><br>〒150-0044, 東京都渋谷区円山町５番３号<br>ＭＩＥＵＸ渋谷ビル８階
+                                        <br><br>メール<br><br>kumimaai@gmail.com
+    </p>
 </section>
 
 <footer>
-    © 2026 KumiMaAi. All Rights Reserved.
+    <span data-i18n="footerText" data-en="© 2026 KumiMaAi. All Rights Reserved." data-ja="© 2026 KumiMaAi. All Rights Reserved.">© 2026 KumiMaAi. All Rights Reserved.</span>
 </footer>
+
+<script>
+    const languageToggle = document.getElementById("language-toggle");
+    const translatableElements = document.querySelectorAll("[data-i18n]");
+    let currentLanguage = "en";
+
+    function applyLanguage(language) {
+        translatableElements.forEach((element) => {
+            const text = element.dataset[language] || element.dataset.en;
+            element.innerHTML = text;
+        });
+
+        document.documentElement.lang = language;
+        languageToggle.textContent = language === "en" ? "日本語" : "English";
+        currentLanguage = language;
+    }
+
+    languageToggle.addEventListener("click", () => {
+        applyLanguage(currentLanguage === "en" ? "ja" : "en");
+    });
+
+    applyLanguage("en");
+</script>
 
 </body>
 </html>
